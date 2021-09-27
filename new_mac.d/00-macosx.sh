@@ -17,21 +17,19 @@ then
 	brew cleanup
 else
 	echo "Installing xcode cli development tools"
-	xcode-select --install
+	xcode-select --install || true
 
 	echo "Installing homebrew..."
 	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
-if command -v mas
-then
-	mas upgrade
-else
-	brew install mas
-fi
+# if command -v mas
+# then
+# 	mas upgrade
+# fi
 
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
-export HOMEBREW_BUNDLE_FILE=$SCRIPT_DIR/Brewfile
+export HOMEBREW_BUNDLE_FILE=$SCRIPT_DIR/../Brewfile
 
 if [ -f $HOMEBREW_BUNDLE_FILE ]
 then
