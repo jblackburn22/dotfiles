@@ -5,4 +5,5 @@ code --install-extension EditorConfig.EditorConfig      # EditorConfig
 code --install-extension dbaeumer.vscode-eslint         # ESlint
 code --install-extension esbenp.prettier-vscode         # Prettier
 code --install-extension ms-python.python               # Python
+code --install-extension hashicorp.terraform            # Terraform
 code --install-extension vscode-icons-team.vscode-icons # vscode-icons'
