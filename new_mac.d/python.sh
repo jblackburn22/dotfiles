@@ -9,4 +9,5 @@ CFLAGS="-I$(brew --prefix openssl)/include -I$(brew --prefix bzip2)/include -I$(
 if command -v pipx
 then
 	pipx ensurepath
+	pipx completions
 fi
