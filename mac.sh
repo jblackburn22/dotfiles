@@ -9,7 +9,7 @@ source ${SCRIPT_DIR}/lib.sh
 cp -p ~/.zshrc ~/.zshrc.bak-$(date "+%Y%m%d-%H%M%S")
 
 # Runs all of the scripts in the new_mac.d directory
-for f in new_mac.d/*.sh; do
+for f in $SCRIPT_DIR/new_mac.d/*.sh; do
 	sh "$f" -H
 done
 
