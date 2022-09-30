@@ -1,11 +1,14 @@
 # Configure Pyenv
+
+source ../lib.sh
+
 append_to_file "$HOME/.zprofile" 'export PYENV_ROOT="$HOME/.pyenv"'
 append_to_file "$HOME/.zprofile" 'export PATH="$PYENV_ROOT/bin:$PATH"'
 append_to_file "$HOME/.zprofile" 'eval "$(pyenv init -)"'
+append_to_file "$HOME/.zprofile" 'export LDFLAGS="-L$(brew --prefix openssl)/lib'
+append_to_file "$HOME/.zprofile" 'export CFLAGS="-I$(brew --prefix openssl)/include'
 
-# CFLAGS=“-I$(brew --prefix openssl)/include -I$(brew --prefix bzip2)/include -I$(brew --prefix readline)/include -I$(xcrun --show-sdk-path)/usr/include” LDFLAGS=“-L$(brew --prefix openssl)/lib -L$(brew --prefix readline)/lib -L$(brew --prefix zlib)/lib -L$(brew --prefix bzip2)/lib” pyenv install --patch 3.6.8 < <(curl -sSL https://github.com/python/cpython/commit/8ea6353.patch\?full_index\=1)
-
-CFLAGS="-I$(brew --prefix openssl)/include -I$(brew --prefix bzip2)/include -I$(brew --prefix readline)/include -I$(xcrun --show-sdk-path)/usr/include" LDFLAGS="-L$(brew --prefix openssl)/lib -L$(brew --prefix readline)/lib -L$(brew --prefix zlib)/lib -L$(brew --prefix bzip2)/lib" pyenv install 3.8.6
+CFLAGS="-I$(brew --prefix openssl)/include" LDFLAGS="-L$(brew --prefix openssl)/lib" pyenv install 3.10.3
 
 # Configure pipx
 if command -v pipx

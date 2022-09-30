@@ -1,15 +1,12 @@
 #!/bin/bash
 
-append_to_file() {
-  local file="$1"
-  local text="$2"
+set -e -o pipefail
 
-  if ! grep -qs "^$text$" "$file"; then
-    printf "\n%s\n" "$text" >> "$file"
-  fi
-}
+export SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 
-cp -p ~/.zshrc ~/.zshrc.bak
+source ${SCRIPT_DIR}/lib.sh
+
+cp -p ~/.zshrc ~/.zshrc.bak-$(date "+%Y%m%d-%H%M%S")
 
 # Runs all of the scripts in the new_mac.d directory
 for f in new_mac.d/*.sh; do

@@ -1,6 +1,8 @@
 ## zsh prompt
 
-pushd workspace
+source $SCRIPT_DIR/lib.sh
+
+pushd ~/workspace
 # clone poweline fonts repo
 git clone https://github.com/powerline/fonts.git --depth=1
 # install it
