@@ -58,7 +58,6 @@ brew "nvm"
 brew "openssl@3"
 brew "pipenv"
 brew "pipx"
-brew "postgresql@11", restart_service: true
 brew "postgresql@14", restart_service: true
 brew "pre-commit"
 brew "pwgen"
